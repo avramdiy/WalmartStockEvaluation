@@ -10,6 +10,8 @@ Initiated data.py to load HTML dataframe, README.md to document commits, table.h
 
 ### 2nd Commit
 
+Out of all attributes, "Dividends" & "Stock Splits" have values of 0 across all rows. Modify data.py to remove "Dividends" & "Stock Splits".
+
 ### 3rd Commit
 
 ### 4th Commit

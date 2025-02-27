@@ -12,6 +12,8 @@ def load_dataframe():
     
     # Load data into a pandas DataFrame
     df = pd.read_csv(data_path)
+
+    df = df.drop(columns=["Dividends", "Stock Splits"], errors="ignore")
     
     # Convert DataFrame to HTML table
     df_html = df.to_html(classes="table table-striped", index=False)
