@@ -14,6 +14,8 @@ Out of all attributes, "Dividends" & "Stock Splits" have values of 0 across all 
 
 ### 3rd Commit
 
+Initiated graph.html to visualize the Weekly Average Opening Price. Route ('/average-open-weekly') in data.py
+
 ### 4th Commit
 
 ### 5th Commit
