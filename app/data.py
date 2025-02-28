@@ -83,5 +83,33 @@ def average_volume_monthly():
     # Return the HTML template with the graph
     return render_template("volume_graph.html", graph=graph_html)
 
+@app.route("/average-close-weekly")
+def average_close_weekly():
+
+    data_path = r"C:\Users\Ev\Desktop\TRG Week 13\walmart_stock_prices.csv"
+
+    df = pd.read_csv(data_path)
+
+    df['Date'] = pd.to_datetime(df['Date'], errors='coerce', utc=True)
+
+    print("After conversion, first few rows of the 'Date' column:", df['Date'].head())
+    
+    df = df.dropna(subset=['Date'])
+
+    df['Date'] = df['Date'].dt.tz_localize(None)
+
+    df.set_index('Date', inplace=True)
+
+    if not isinstance(df.index, pd.DatetimeIndex):
+        raise ValueError("The index is not a DatetimeIndex. Ensure that the 'Date' column is correctly converted.")
+
+    weekly_avg_open = df['Close'].resample('W').mean().reset_index()
+
+    fig = px.line(weekly_avg_open, x='Date', y='Close', title="Weekly Average 'Close' Prices")
+
+    graph_html = pio.to_html(fig, full_html=False)
+
+    return render_template("close_graph.html", graph=graph_html)
+
 if __name__ == "__main__":
     app.run(debug=True)
