@@ -18,4 +18,6 @@ Initiated graph.html to visualize the Weekly Average Opening Price. Route ('/ave
 
 ### 4th Commit
 
+Initiated volume_graph.html to visualize the Monthly Volume Traded. Route ('/average-volume-monthly') in data.py
+
 ### 5th Commit
